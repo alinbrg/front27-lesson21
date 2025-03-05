@@ -1,0 +1,175 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+img {
+	width: 100%;
+}
+.slider {
+	position: relative;
+	padding: 30px 0;
+}
+.slider-wrapper {
+	display: flex;
+	height: 500px;
+	overflow: hidden;
+}
+.slide {
+	/* display: none; */
+	opacity: 0;
+	visibility: hidden;
+	width: 0;
+	transform: scale(0);
+	transition: opacity 0.7s linear;
+	position: relative;
+}
+.slide.show-slide {
+	/* display: block; */
+	width: 100%;
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1);
+}
+
+.slide-desc {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	background-color: rgba(240, 248, 255, 0.9);
+	border-radius: 10px;
+	padding: 30px 20px;
+	color: black;
+	width: 60%;
+	height: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 10px;
+	transition: all 0.3s;
+}
+.slide-desc:hover {
+	background-color: rgba(240, 248, 255, 1);
+}
+
+.slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.slider-btns button {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+	transform: translateY(-50%);
+	background-color: aliceblue;
+	border: 1px solid darkcyan;
+	color: darkcyan;
+	font-size: 20px;
+	transition: all 0.3s;
+}
+.slider-btns button:hover {
+	background-color: darkcyan;
+	border-color: transparent;
+	color: aliceblue;
+}
+
+.next {
+	right: 10px;
+}
+.slider-btns button.prev {
+	left: 10px;
+	transform: translateY(-50%) rotate(-180deg);
+}
+.form {
+	/* display: none; */
+}
+
+dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+form {
+	max-width: 600px;
+	margin: 50px auto;
+}
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	margin-bottom: 10px;
+}
+
+label:has(~ [required])::after {
+	content: "*";
+	color: red;
+	margin-left: 5px;
+	font-size: 20px;
+}
+input {
+	padding: 10px;
+	border: 3px solid #ccc;
+	outline: none;
+}
+.form-group.success input {
+	border-color: green;
+}
+.form-group.error input {
+	border-color: red;
+}
+.error-message {
+	height: 25px;
+	font-size: 14px;
+}
+
+.form-group.success .error-message {
+	color: green;
+}
+.form-group.error .error-message {
+	color: red;
+}
+
+button {
+	padding: 10px;
+	background-color: darkcyan;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	justify-content: center;
+	align-items: center;
+}
+.modal.active {
+	display: flex;
+}
+.content {
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	max-width: 800px;
+	width: 80%;
+}
+dialog {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	border: none;
+}
